@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> All Posts</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+ <body class="<%= theme==='dark' ? 'dark' : '' %>">
+    <h1>Quora Posts</h1><br><br>  <p class="usercount">TOTAL USERS:<%= total %></p>
+
+    <a href="/toggle-theme">
+      <button>
+        <%= theme==='dark'? '✦ Light Mode' :'⏾ Dark Mode' %>
+      </button>
+    </a>
+    <br><br>
+ 
+
+ 
+    <%  for(post of posts){ %>
+    <div class="post">
+
+      <img src="<%= post.profilePic %>" class="pimg">
+
+      
+      <div class="contentbody">
+        <h3 class="user">@<%= post.username %></h3>
+        <h4 class="content"> <%= post.content %></h4>
+        
+        <br>
+        <a href="http://localhost:3001/posts/<%=post.id %>">See in Detail</a> 
+        
+        <a href="http://localhost:3001/posts/<%=post.id %>/edit">Edit</a>
+
+         
+        <form action="http://localhost:3001/posts/<%=post.id%>?_method=DELETE" method="post">
+          <br>
+          <button>Delete post </button>
+        </form>
+      </div>
+      
+      <div class="multiImages">
+        <% for( let img of image){%>
+          <%if(img.post_id === post.id){ %>
+           <img class="postImage" src="<%= img.url%>" alt="">
+            <%}%>
+ 
+        <% } %>
+        
+     </div>
+      <br>
+
+        
+     
+    </div>
+
+    
+    
+    <%  } %>
+
+    <br   />
+    <br  />
+    
+    <a href="http://localhost:3001/posts/new">Create New Post</a>
+
+    
+
+
+ </body>
+</html>
+
+
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post in Detail</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body class="<%= theme === 'dark' ?  'dark' :'' %>"> 
+  <a href="/toggle-theme">
+    <button>
+        <%= theme === "dark" ? "Switch to Light" : "Switch to Dark" %>
+    </button>
+</a>
+
+    <h2>Here is your post in detail</h2>
+    <p>Post id: <%= post.id %> </p>
+    <div class="post">
+        <h3 class="user">@<%=post.username %> </h3>
+        <h4 class=""> <%= post.content%> </h4>
+
+        <br>
+          <div class="multiImages">
+           <% if (post.images) { %>
+             <% post.images.forEach(img => { %>
+               <img src="<%= img.url %>" class="postImage">
+                  <form method="post" action="http://localhost:8080/posts/<%= post._id %>/images/<%= img._id %>/delete">
+            <button type="submit">Delete photo</button>
+          </form>
+               
+
+             <% }) %>
+           <% } %>
+          </div>
+       
+          <a href="http://localhost:8080/posts/<%= post.id %>/comment">Comments</a>
+    </div>
+    <div>
+
+      <a  class="footer" href="/posts">Home</a>
+      
+
+ 
+
+
+    </div>
+    
+    
+</body>
+</html>

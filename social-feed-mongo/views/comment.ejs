@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments in post</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="<%= theme==='dark' ? 'dark' : '' %>">
+  <a href="/posts/<%=post.id%>">
+
+    <h1 class="commentP">@<%= post.username %> Profile </h1>
+  </a>
+
+   <br>
+
+   <div class="multiImages">
+        <% if (post.images && post.images.length>0) { %>
+          <% post.images.forEach(img => { %>
+            <img src="<%= img %>" class="postImage" style="width:10%; height: auto;">
+          <% }) %>
+        <% } %>
+     </div>
+     <br>
+
+     <h2>Comments:</h2>
+     
+     <% if(!post.comments || post.comments.length===0){%>
+        <p>No comment yet.</p>
+      <% } %>
+      
+    <% if(post.comments){ %>
+      <% post.comments.forEach(c=>{%>
+        <div class="commentBox">
+          <strong>@<%= c.username %>:</strong>
+          <p><%= c.text %></p>
+
+        </div>
+
+      <%})%>
+    <%}%>
+
+     <h4>Add a comment</h4>
+     <form action="/posts/<%= post.id %>/comment" method="POST">
+        <input type="text" name="username" placeholder="Your name" required>
+        <br><br>
+        <textarea name="comment" placeholder="Write a comment " required></textarea>
+        <br><br>
+
+        <button>Add Comment</button>
+     </form>
+
+     <div class="footer">
+      <a href="/posts">Home</a>
+      <a href="/posts/<%= post.id %>">Profile</a>
+     </div>
+
+
+     <script>
+      const btn = document.getElementById("themeToggle");
+      btn.addEventListener("click",()=>{
+        document.body.classList.toggle("dark");
+
+      })
+     </script>
+
+</body>
+</html> 

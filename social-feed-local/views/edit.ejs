@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Post</title>
+</head>
+<body class="<%= theme === 'dark' ? 'dark' : '' %>">
+
+    <a href="/toggle-theme">
+    <button>
+      <%= theme === "dark" ? "Switch to Light" : "Switch to Dark" %>
+    </button>
+    </a>
+
+<h2>Edit Post</h2>
+
+<form
+action="/posts/<%= post.id %>/profile?_method=PATCH"
+method="post"
+enctype="multipart/form-data">
+
+    <label>Upload New Profile pic:</label>
+    <input type="file" name="profilePic" accept="image/*">
+    <br><br>
+    <button>Change Profile Pic</button>
+
+</form>
+
+<form action="/posts/<%=post.id%>?_method=PATCH" 
+      method="post"
+      enctype="multipart/form-data">
+
+    <textarea  row="40" cols="45" name="content"><%=post.content%></textarea>
+
+    <br><br>
+
+        <p>Current Images:</p>
+
+         <div class="multiImages">
+          <% if (post.images && post.images.length > 0) { %>
+          <% post.images.forEach(img => { %>
+          <img src="<%= img %>" style="width:5%; height:auto; border-radius:10px; margin:5px;">
+          <% }) %>
+          <% } else { %>
+             <p>No images yet</p>
+          <% } %>
+        </div>
+
+    <br><br>
+
+    <label>Upload New Image (optional):</label>
+    <input type="file" name="images" accept="image/*" multiple>
+
+    <br><br>
+
+    <button>Update Post</button>
+
+</form>
+
+  
+
+</body>
+</html>

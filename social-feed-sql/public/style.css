@@ -1,0 +1,115 @@
+h1{
+    color:maroon;
+}
+.post{
+    background-color: blanchedalmond;
+    border: 1px solid white;
+     
+ }
+
+.user{
+    font-style: italic;
+ }
+.body{
+    background-color: gray;
+    color: black;
+}
+.contentbody{
+    margin-left: 10px;
+}
+
+.usercount{position: absolute;
+    top: 40px;
+    right: 40px;
+     background-color: #444;
+    color: white;
+    border: 1px solid #666;
+    font-family: monospace;
+
+}
+.pimg{
+    border-radius: 50%;
+     margin-right: 100px;
+     margin-left: 10px;
+    width: 5rem;
+    height: 5rem;
+    
+    
+
+    
+ }
+ .postImage{
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+
+ 
+ }
+
+.commentP:hover{
+    color:blue;
+    text-decoration-line: underline ;
+    transition: ease-in-out 0.3s ;
+    
+}
+.editing{
+    
+    width: 200px;          
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    margin-bottom: 10px;
+}
+
+
+body.dark{
+    background-color: #111;
+    color:#fff;
+}
+.post{
+    background-color: #f3f3f3;
+}
+
+body.dark .post{
+    background-color: #222;
+}
+
+body.dark a{
+    color:#80b7ff
+}
+
+
+/* input + textarea */
+body.dark input,
+body.dark textarea {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark button {
+    background-color: #444;
+    color: white;
+    border: 1px solid #666;
+}
+
+button {
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 8px;
+ }
+
+.footer{
+    position: absolute;
+    bottom:40px;
+    right: 40px;
+
+     
+
+}
+#themeToggle{
+    position: fixed;
+}

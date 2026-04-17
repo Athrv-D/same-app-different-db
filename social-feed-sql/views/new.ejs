@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Post</title>
+     <link rel="stylesheet" href="/style.css">
+
+</head>
+<body class="<%= theme === 'dark' ? 'dark' : '' %>">
+
+    <form action="/posts/<%= post.id %>/profile?_method=PATCH" method="post" enctype="multipart/form-data">
+      
+     </form>
+
+    <form method="POST" action="/posts" enctype="multipart/form-data">
+          <label for="">Profile Pic:</label>
+        <br>
+        <input type="file" name="profilePic" accept="image/*"/>
+        <br><br>
+
+        <input placeholder="enter username" name="username" required /> 
+        <br /><br />
+
+        <textarea name="content" placeholder="Write Your Post" required></textarea> 
+        <br /><br />
+
+        <input type="file" name="images" accept="image/*" />
+        <br /><br />
+
+        <button>Submit Post</button>
+
+    </form>
+
+    <% if(error==="username_exists"){ %>
+        <p style="color:red;">Username Already Exists</p>
+        <% } %>
+
+        <% if(error==="db_error") {%>
+            <p style="color:red;">Some error Occured! Try Again.</p>
+            <% } %>
+
+</body>
+</html>
