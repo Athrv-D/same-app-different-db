@@ -1,3 +1,6 @@
+<img width="1338" height="627" alt="Screenshot 2026-04-25 181050" src="https://github.com/user-attachments/assets/5a842508-1fe7-48ea-9936-926b7c792873" />
+
+
 🚀 Backend Project: Same Application Built Using Different Data Storage Approaches
 
 I built a post-based web application and implemented it using three different data storage approaches to understand how backend systems behave with different database models.
